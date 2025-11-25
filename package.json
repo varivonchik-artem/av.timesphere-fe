@@ -8,7 +8,8 @@
     "build:production": "webpack --env mode=production",
     "build:development": "webpack --env mode=development",
     "prettier:fix": "npx prettier --write .",
-    "eslint:fix": "npx eslint --fix ."
+    "eslint:fix": "npx eslint --fix .",
+    "steiger:find": "npx steiger ./src"
   },
   "keywords": [],
   "author": "",
@@ -40,6 +41,7 @@
   },
   "dependencies": {
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.6"
   }
 }
