@@ -16,7 +16,7 @@ export function Modal(props: ModalProps): React.ReactElement | null {
 
   if (!isOpen) return null;
 
-  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const closeOnClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -24,7 +24,7 @@ export function Modal(props: ModalProps): React.ReactElement | null {
 
   return (
     <Portal>
-      <div className={clx("modal", { "modal--opened": isOpen })} onClick={handleOverlayClick}>
+      <div className={clx("modal", { "modal--opened": isOpen })} onClick={closeOnClick}>
         <div className="modal__content">
           <Button className="modal__close" onClick={onClose} aria-label="Close modal">
             &times;
