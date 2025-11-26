@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { AppRouter } from "./app/providers/router";
 
+import "./shared/styles/index.scss";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
