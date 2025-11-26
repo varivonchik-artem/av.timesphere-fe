@@ -2,6 +2,7 @@ import React from "react";
 import "./Modal.scss";
 import clx from "classnames";
 import { Button } from "../Button";
+import { Portal } from "../Portal";
 
 interface ModalProps {
   isOpen: boolean;
@@ -22,13 +23,15 @@ export function Modal(props: ModalProps): React.ReactElement | null {
   };
 
   return (
-    <div className={clx("modal", { "modal--opened": isOpen })} onClick={handleOverlayClick}>
-      <div className="modal__content">
-        <Button className="modal__close" onClick={onClose} aria-label="Close modal">
-          &times;
-        </Button>
-        {children}
+    <Portal>
+      <div className={clx("modal", { "modal--opened": isOpen })} onClick={handleOverlayClick}>
+        <div className="modal__content">
+          <Button className="modal__close" onClick={onClose} aria-label="Close modal">
+            &times;
+          </Button>
+          {children}
+        </div>
       </div>
-    </div>
+    </Portal>
   );
 }
