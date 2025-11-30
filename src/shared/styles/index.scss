@@ -1,6 +1,7 @@
 // base
 @use "./base/normalize.scss";
-@use "./helpers/media.scss";
+@use "./base/fonts.scss";
 
 // helpers
 @use "./helpers/functions.scss";
+@use "./helpers/media.scss";
