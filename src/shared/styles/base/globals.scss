@@ -1,0 +1,90 @@
+@use "../helpers/functions.scss";
+@use "../helpers/mixins.scss";
+
+body {
+  font-size: functions.fluid(14px, 18px);
+
+  font-family: var(--font-family-base);
+
+  color: var(--color-gray-60);
+  background-color: var(--color-black-08);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  color: var(--color-white);
+}
+
+h1,
+.h1 {
+  font-size: functions.fluid(28px, 58px);
+
+  font-weight: 700;
+}
+
+h2,
+.h2 {
+  font-size: functions.fluid(24px, 48px);
+
+  font-weight: 700;
+}
+
+h3,
+.h3 {
+  font-size: functions.fluid(20px, 38px);
+
+  font-weight: 700;
+}
+
+h4,
+.h4 {
+  font-size: functions.fluid(18px, 24px);
+
+  font-weight: 600;
+}
+
+h5,
+.h5 {
+  font-size: functions.fluid(18px, 22px);
+
+  font-weight: 500;
+}
+
+h6,
+.h6 {
+  font-size: functions.fluid(16px, 20px);
+
+  font-weight: 600;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: inherit;
+
+  &[class] {
+    text-decoration: none;
+  }
+
+  @include mixins.hover {
+    color: var(--color-black-red-45);
+  }
+}
