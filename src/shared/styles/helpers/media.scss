@@ -1,10 +1,26 @@
-@mixin up($breakpoint) {
+@use "sass:map";
+
+$breakpoints: (
+  "mobile": 480px,
+  "mobile-lg": 767px,
+  "tablet-portrait": 991px,
+  "tablet-landscape": 1199px,
+  "desktop": 1440px,
+);
+
+@function bp($key) {
+  @return map.get($breakpoints, $key);
+}
+
+@mixin up($key) {
+  $breakpoint: bp($key);
   @media (min-width: $breakpoint) {
     @content;
   }
 }
 
-@mixin down($breakpoint) {
+@mixin down($key) {
+  $breakpoint: bp($key);
   @media (max-width: $breakpoint) {
     @content;
   }
