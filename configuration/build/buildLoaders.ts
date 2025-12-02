@@ -29,7 +29,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   };
 
   const imagesLoader: webpack.RuleSetRule = {
-    test: /\.(png|jpe?g|gif|svg|ico)$/i,
+    test: /\.(png|jpe?g|gif|ico)$/i,
     type: "asset/resource",
     generator: {
       filename: "images/[name][hash][ext]",
@@ -44,5 +44,10 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     },
   };
 
-  return [typescriptLoaders, cssLoaders, imagesLoader, fontsLoader];
+  const svgrLoader = {
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  };
+
+  return [typescriptLoaders, svgrLoader, cssLoaders, imagesLoader, fontsLoader];
 }
