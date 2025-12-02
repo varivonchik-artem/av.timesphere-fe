@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { App } from "./app/App";
 
 import { ErrorBoundary } from "./app/providers/ErrorBoundary";
-import { AppRouter } from "./app/providers/router";
 
 import "./shared/styles/index.scss";
 
@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <ErrorBoundary>
       <BrowserRouter>
-        <AppRouter />
+        <App />
       </BrowserRouter>
     </ErrorBoundary>
   </React.StrictMode>
