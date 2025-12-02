@@ -16,7 +16,15 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button(props: ButtonProps): React.ReactElement {
-  const { className = "", type = "button", icon, iconPosition = "before", label, isLabelHidden, ...rest } = props;
+  const {
+    className = "",
+    type = "button",
+    icon,
+    iconPosition = "before",
+    label,
+    isLabelHidden = false,
+    ...rest
+  } = props;
 
   const classes = clx("button", className, {
     "button--icon-only": !label && icon,

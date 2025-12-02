@@ -1,0 +1,9 @@
+@use "../../styles/helpers/mixins.scss";
+@use "../../styles/helpers/functions.scss";
+.icon {
+  --iconSize: #{functions.fluid(24, 28)};
+
+  display: inline-flex;
+
+  @include mixins.equal-size(var(--iconSize));
+}

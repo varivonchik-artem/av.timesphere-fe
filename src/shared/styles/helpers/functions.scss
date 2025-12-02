@@ -1,18 +1,17 @@
 @use "sass:math";
 
 @function fluid($min: 10, $max: 100) {
-  $minViewportWidth: 330px;
-  $maxViewportWidth: 1440px;
-  $baseFontSize: 16px;
+  $minViewportWidth: 330;
+  $maxViewportWidth: 1440;
+  $baseFontSize: 16;
 
   $minSize: math.div($min, $baseFontSize);
   $maxSize: math.div($max, $baseFontSize);
-
   $minWidth: math.div($minViewportWidth, $baseFontSize);
   $maxWidth: math.div($maxViewportWidth, $baseFontSize);
 
   $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
-  $yAxisIntersection: -$minWidth * $slope + $minSize;
+  $yAxisIntersection: $minSize - $slope * $minWidth;
 
   @return clamp(#{$minSize}rem, calc(#{$yAxisIntersection}rem + #{$slope * 100}vw), #{$maxSize}rem);
 }

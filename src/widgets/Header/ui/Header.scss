@@ -1,0 +1,76 @@
+@use "../../../shared/styles/helpers/functions.scss";
+@use "../../../shared/styles/helpers/mixins.scss";
+
+.header {
+  position: sticky;
+
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+
+  padding-block: functions.fluid(14, 22);
+
+  border-bottom: 1px solid transparent;
+
+  animation-name: on-header-scroll;
+  animation-fill-mode: both;
+  animation-timeline: scroll();
+  animation-range: 0 100px;
+
+  @keyframes on-header-scroll {
+    to {
+      padding-block: 10px;
+
+      border-color: var(--color-black-15);
+      background-color: var(--color-black-08);
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    column-gap: 16px;
+  }
+
+  &__menu {
+    padding: functions.fluid(8, 10);
+
+    outline: 5px solid var(--color-black-12);
+
+    border-radius: 10px;
+
+    background-color: var(--color-black-06);
+
+    &-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      column-gap: 6px;
+    }
+
+    &-link {
+      padding: functions.fluid(12, 14) functions.fluid(20, 24);
+
+      color: var(--color-gray-75);
+      border-radius: 8px;
+
+      &--active {
+        font-weight: 500;
+
+        color: var(--color-white);
+        background-color: var(--color-black-10);
+
+        pointer-events: none;
+      }
+
+      @include mixins.hover {
+        color: var(--color-white);
+        background-color: var(--color-red-60);
+      }
+    }
+  }
+}
